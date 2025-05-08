@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqpos510hk25v"]
+[gd_scene load_steps=6 format=3 uid="uid://cqpos510hk25v"]
 
 [ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_3apk8"]
+[ext_resource type="Script" uid="uid://cukrxlxga1le8" path="res://Scenes/Objects/platform.gd" id="1_6ws1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ws1b"]
 atlas = ExtResource("1_3apk8")
@@ -9,9 +10,13 @@ region = Rect2(768, 704, 64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3jq"]
 size = Vector2(192, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ws1b"]
+size = Vector2(165, 44)
+
 [node name="Platform" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("1_6ws1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -20,3 +25,13 @@ texture = SubResource("AtlasTexture_6ws1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mi3jq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -12)
+shape = SubResource("RectangleShape2D_6ws1b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

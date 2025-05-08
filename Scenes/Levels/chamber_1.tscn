@@ -346,7 +346,7 @@ position = Vector2(3800, -864)
 scale = Vector2(1.4, 1.4)
 
 [node name="Player" parent="." instance=ExtResource("5_0cfl3")]
-position = Vector2(-864, 528)
+position = Vector2(3632, -944)
 
 [node name="ExitDoor" type="Area2D" parent="."]
 z_index = -1

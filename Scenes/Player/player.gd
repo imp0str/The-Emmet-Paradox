@@ -4,7 +4,7 @@ const SPEED = 250.0
 const ACCELERATION = 1200.0
 const AIR_ACCELERATION = 600.0
 const FRICTION = 800.0
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -475.0
 const MAX_JUMPS = 2
 
 var jump_count = 0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8rh7gck28tbl"]
+
+[ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_5jqdw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7klr3"]
+atlas = ExtResource("1_5jqdw")
+region = Rect2(768, 704, 64, 64)
+
+[node name="Shard" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("AtlasTexture_7klr3")
