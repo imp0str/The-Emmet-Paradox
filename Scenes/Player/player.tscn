@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp2g86l8eqfuw"]
+
+[ext_resource type="Script" uid="uid://capjjnx3fwujv" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_uvnfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpcdj"]
+size = Vector2(51, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3d8c"]
+atlas = ExtResource("1_uvnfx")
+region = Rect2(0, 384, 64, 64)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_a3d8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xpcdj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.027451, 0.937255, 1, 1)
+scale = Vector2(0.8, 1.5)
+texture = SubResource("AtlasTexture_a3d8c")
+
+[node name="Camera2D" type="Camera2D" parent="."]

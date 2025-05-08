@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnwxqijqrlt86"]
+
+[ext_resource type="Script" uid="uid://b223177xbk1ss" path="res://game_controller.gd" id="1_6ehcl"]
+[ext_resource type="PackedScene" uid="uid://f00mh437yufm" path="res://Scenes/main_menu.tscn" id="2_3l2af"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_2d", "color_rect", "narrator_text")]
+script = ExtResource("1_6ehcl")
+world_2d = NodePath("World2D")
+color_rect = NodePath("GuiOverlay/ColorRect")
+narrator_text = NodePath("GuiOverlay/NarratorText")
+
+[node name="GuiOverlay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="GuiOverlay"]
+modulate = Color(1, 1, 1, 0)
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="NarratorText" type="RichTextLabel" parent="GuiOverlay"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 185.0
+offset_bottom = 120.0
+grow_horizontal = 2
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="MainMenu" parent="World2D" instance=ExtResource("2_3l2af")]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyavprs2in1bf"]
+
+[ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_djkx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gowa2"]
+atlas = ExtResource("1_djkx2")
+region = Rect2(768, 704, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djkx2"]
+size = Vector2(64, 305)
+
+[node name="TestChamberDoor" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 120.5)
+scale = Vector2(1, 4.76563)
+texture = SubResource("AtlasTexture_gowa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 120.5)
+shape = SubResource("RectangleShape2D_djkx2")

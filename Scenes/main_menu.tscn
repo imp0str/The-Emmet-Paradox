@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://f00mh437yufm"]
+
+[ext_resource type="Script" uid="uid://c002g5f4w733h" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_28flt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.5
+offset_right = 45.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Game"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
