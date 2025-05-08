@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqpos510hk25v"]
+
+[ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_3apk8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ws1b"]
+atlas = ExtResource("1_3apk8")
+region = Rect2(768, 704, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3jq"]
+size = Vector2(192, 64)
+
+[node name="Platform" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(3, 1)
+texture = SubResource("AtlasTexture_6ws1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mi3jq")

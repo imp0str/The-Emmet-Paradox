@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg0hi8sugysqh"]
+
+[ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_54bc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54bc2"]
+atlas = ExtResource("1_54bc2")
+region = Rect2(576, 640, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ug5e"]
+atlas = ExtResource("1_54bc2")
+region = Rect2(645, 640, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6l7x"]
+atlas = ExtResource("1_54bc2")
+region = Rect2(714, 640, 54, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0k4t2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54bc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ug5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6l7x")
+}],
+"loop": false,
+"name": &"switch",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54bc2"]
+radius = 24.0
+
+[node name="Button" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_0k4t2")
+animation = &"switch"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_54bc2")
