@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://djg8e2s2iifcf"]
+[gd_scene load_steps=13 format=4 uid="uid://djg8e2s2iifcf"]
 
 [ext_resource type="Texture2D" uid="uid://crvusrmhc52co" path="res://Assets/tilesheet_complete.png" id="1_30336"]
 [ext_resource type="Script" uid="uid://oeawgdh2g7jv" path="res://Scripts/test_chamber.gd" id="1_y6ptc"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dyavprs2in1bf" path="res://Scenes/Objects/test_chamber_door.tscn" id="3_5r0hm"]
 [ext_resource type="Shader" uid="uid://jkxevnyqphws" path="res://Scenes/Levels/door_outline.gdshader" id="5_khcj1"]
 [ext_resource type="Texture2D" uid="uid://ha3c7tm2otbs" path="res://Assets/white.png" id="6_qyc5w"]
+[ext_resource type="Texture2D" uid="uid://cvxwt33vanpo8" path="res://Assets/lamp.png" id="7_usig4"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qyc5w"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psx28"]
 texture = ExtResource("1_30336")
@@ -266,6 +270,7 @@ texture_region_size = Vector2i(64, 64)
 11:11/0 = 0
 12:11/0 = 0
 12:11/0/modulate = Color(0, 0, 0, 1)
+12:11/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qyc5w")
 12:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 13:11/0 = 0
 14:11/0 = 0
@@ -279,6 +284,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_5r0hm"]
 tile_size = Vector2i(64, 64)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_psx28")
@@ -322,6 +328,18 @@ shape = SubResource("RectangleShape2D_usig4")
 material = SubResource("ShaderMaterial_usig4")
 scale = Vector2(1.2, 2)
 texture = ExtResource("6_qyc5w")
+
+[node name="Lamp" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1959, 215)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_usig4")
+
+[node name="Lamp2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2420, 211)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_usig4")
 
 [connection signal="timeout" from="IntroTimer" to="." method="_on_intro_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
